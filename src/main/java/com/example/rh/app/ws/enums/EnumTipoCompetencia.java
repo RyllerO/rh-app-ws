@@ -3,7 +3,7 @@ package com.example.rh.app.ws.enums;
  * @author Ryller Oliveira
  */
 
-public enum EnumTipoCategoria {
+public enum EnumTipoCompetencia {
     APRESENTACAO_PESSOAL("Apresentação pessoal"),
     DIDATICA("Didática"),
     COMPROMENTIMENTO("Compromentimento"),
@@ -11,7 +11,7 @@ public enum EnumTipoCategoria {
 
     private String descricao;
 
-    EnumTipoCategoria(String descricao) {
+    EnumTipoCompetencia(String descricao) {
         this.descricao = descricao;
     }
 

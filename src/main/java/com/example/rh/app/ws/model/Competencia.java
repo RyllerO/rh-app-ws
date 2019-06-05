@@ -17,14 +17,9 @@ public class Competencia {
     private Long id;
 
     @NotNull
-    @JoinColumn(nullable = false, name = "tipo_competencia_id")
-    @ManyToOne(cascade = CascadeType.ALL)
-    private TipoCompetencia tipoCompetencia;
-
-    @NotNull
     private String nome;
 
-    @NotNull
+
     private String descricao;
 
     @NotNull
@@ -36,14 +31,6 @@ public class Competencia {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public TipoCompetencia getTipoCompetencia() {
-        return tipoCompetencia;
-    }
-
-    public void setTipoCompetencia(TipoCompetencia tipoCompetencia) {
-        this.tipoCompetencia = tipoCompetencia;
     }
 
     public String getNome() {
@@ -76,14 +63,13 @@ public class Competencia {
         if (o == null || getClass() != o.getClass()) return false;
         Competencia that = (Competencia) o;
         return peso == that.peso &&
-                Objects.equals(id, that.id) &&
-                Objects.equals(tipoCompetencia, that.tipoCompetencia) &&
-                Objects.equals(nome, that.nome) &&
+                id.equals(that.id) &&
+                nome.equals(that.nome) &&
                 Objects.equals(descricao, that.descricao);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, tipoCompetencia, nome, descricao, peso);
+        return Objects.hash(id, nome, descricao, peso);
     }
 }
