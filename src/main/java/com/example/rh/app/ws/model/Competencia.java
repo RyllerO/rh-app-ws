@@ -17,14 +17,13 @@ public class Competencia {
     private Long id;
 
     @NotNull
-    @JoinColumn(nullable = false, name = "tipo_competencia_id")
+    @JoinColumn(nullable = false, name = "id_tipo_competencia")
     @ManyToOne(cascade = CascadeType.ALL)
     private TipoCompetencia tipoCompetencia;
 
     @NotNull
     private String nome;
 
-    @NotNull
     private String descricao;
 
     @NotNull

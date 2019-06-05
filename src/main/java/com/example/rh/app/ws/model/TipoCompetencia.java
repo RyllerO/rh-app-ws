@@ -11,7 +11,7 @@ import java.util.Objects;
  */
 
 @Entity
-@Table(name = "tipocompetencia")
+@Table(name = "tipo_competencia")
 public class TipoCompetencia {
 
     @Id
@@ -19,7 +19,7 @@ public class TipoCompetencia {
     private Long id;
 
     @NotNull
-    private EnumTipoCategoria nome;
+    private String nome;
 
     public Long getId() {
         return id;
@@ -29,11 +29,11 @@ public class TipoCompetencia {
         this.id = id;
     }
 
-    public EnumTipoCategoria getNome() {
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(EnumTipoCategoria nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
