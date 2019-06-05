@@ -1,6 +1,6 @@
 package com.example.rh.app.ws.model;
 
-import com.example.rh.app.ws.enums.EnumTipoCompetencia;
+import com.example.rh.app.ws.enums.EnumTipoCategoria;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -19,7 +19,7 @@ public class TipoCompetencia {
     private Long id;
 
     @NotNull
-    private EnumTipoCompetencia nome;
+    private EnumTipoCategoria nome;
 
     public Long getId() {
         return id;
@@ -29,11 +29,11 @@ public class TipoCompetencia {
         this.id = id;
     }
 
-    public EnumTipoCompetencia getNome() {
+    public EnumTipoCategoria getNome() {
         return nome;
     }
 
-    public void setNome(EnumTipoCompetencia nome) {
+    public void setNome(EnumTipoCategoria nome) {
         this.nome = nome;
     }
 
