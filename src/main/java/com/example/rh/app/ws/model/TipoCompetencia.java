@@ -1,7 +1,5 @@
 package com.example.rh.app.ws.model;
 
-import com.example.rh.app.ws.enums.EnumTipoCategoria;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;

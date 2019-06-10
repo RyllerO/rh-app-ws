@@ -10,6 +10,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "competencia")
+@Embeddable
 public class Competencia {
 
     @Id
@@ -17,8 +18,8 @@ public class Competencia {
     private Long id;
 
     @NotNull
-    @JoinColumn(nullable = false, name = "id_tipo_competencia")
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+    @JoinColumn(name = "id_tipo_competencia")
     private TipoCompetencia tipoCompetencia;
 
     @NotNull
@@ -28,6 +29,10 @@ public class Competencia {
 
     @NotNull
     private int peso;
+
+    private int escala;
+
+    private int valorEstrategico;
 
     public Long getId() {
         return id;
@@ -69,20 +74,38 @@ public class Competencia {
         this.peso = peso;
     }
 
+    public int getEscala() {
+        return escala;
+    }
+
+    public void setEscala(int escala) {
+        this.escala = escala;
+    }
+
+    public int getValorEstrategico() {
+        return valorEstrategico;
+    }
+
+    public void setValorEstrategico(int valorEstrategico) {
+        this.valorEstrategico = valorEstrategico;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Competencia that = (Competencia) o;
         return peso == that.peso &&
-                Objects.equals(id, that.id) &&
-                Objects.equals(tipoCompetencia, that.tipoCompetencia) &&
-                Objects.equals(nome, that.nome) &&
+                escala == that.escala &&
+                valorEstrategico == that.valorEstrategico &&
+                id.equals(that.id) &&
+                tipoCompetencia.equals(that.tipoCompetencia) &&
+                nome.equals(that.nome) &&
                 Objects.equals(descricao, that.descricao);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, tipoCompetencia, nome, descricao, peso);
+        return Objects.hash(id, tipoCompetencia, nome, descricao, peso, escala, valorEstrategico);
     }
 }
