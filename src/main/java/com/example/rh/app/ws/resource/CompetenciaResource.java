@@ -47,4 +47,10 @@ public class CompetenciaResource {
         Competencia competencia = competenciaRepository.findOne(id);
         return competencia != null ? ResponseEntity.ok(competencia) : ResponseEntity.notFound().build();
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void remover (@PathVariable Long id) {
+        competenciaRepository.delete(id);
+    }
 }
