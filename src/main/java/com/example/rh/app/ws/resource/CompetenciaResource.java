@@ -3,6 +3,7 @@ package com.example.rh.app.ws.resource;
 import com.example.rh.app.ws.event.RecursoCriadoEvent;
 import com.example.rh.app.ws.model.Competencia;
 import com.example.rh.app.ws.repository.CompetenciaRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
@@ -52,5 +53,13 @@ public class CompetenciaResource {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void remover (@PathVariable Long id) {
         competenciaRepository.delete(id);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Competencia> atualizar(@PathVariable Long id, @Valid @RequestBody Competencia competencia) {
+        Competencia competenciaSalva = competenciaRepository.findOne(id);
+        BeanUtils.copyProperties(competencia, competenciaSalva, "id");
+        competenciaRepository.save(competenciaSalva);
+        return ResponseEntity.ok(competenciaSalva);
     }
 }

@@ -1,11 +1,10 @@
--- CREATE TABLE avaliacao (
---         id BIGINT(20) PRIMARY KEY AUTO_INCREMENT,
---         membroAvaliador VARCHAR (150) NOT NULL,
---         departamento VARCHAR (70) NOT NULL,
---         professorAvaliado VARCHAR (150) NOT NULL,
---         data TIMESTAMP NOT NULL,
---         totalAvaliadores BIGINT(30) NOT NULL,
---         avaliadorResponsavel VARCHAR (150) NOT NULL,
---         id_competencia_avaliacao BIGINT(30) REFERENCES ,
---         id_tipo_competencia BIGINT (20) REFERENCES tipo_competencia (id),
--- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE avaliacao (
+        id BIGINT(20) PRIMARY KEY AUTO_INCREMENT,
+        membro_avaliador VARCHAR (150) NOT NULL,
+        departamento VARCHAR (70) NOT NULL,
+        professor_avaliado VARCHAR (150) NOT NULL,
+        data VARCHAR (50) NOT NULL,
+        total_avaliadores BIGINT(30) NOT NULL,
+        avaliador_responsavel VARCHAR (150) NOT NULL,
+        id_competencia BIGINT(20) REFERENCES competencia (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
